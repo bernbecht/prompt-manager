@@ -38,6 +38,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:^4.16.1":
+  version: 4.16.1
+  resolution: "@prisma/client@npm:4.16.1"
+  dependencies:
+    "@prisma/engines-version": 4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: da715b6e930f56493cb7c6232b179250a4e93bbc2b5fe42a84cb9511d127b6fd89e1271f83e1d531bd4fdd7e87f6ac0701b30174cf89212ae7da88097de31026
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c":
+  version: 4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c
+  resolution: "@prisma/engines-version@npm:4.16.0-66.b20ead4d3ab9e78ac112966e242ded703f4a052c"
+  checksum: 23183cab33f95e0711cd6cee7642f4beeeb77b8b0aa54b419f55097bfb96863a11a28f6509ab27fef0ea794522e188044ce850993a25c341333f8305711a255f
+  languageName: node
+  linkType: hard
+
 "@prisma/engines@npm:4.16.1":
   version: 4.16.1
   resolution: "@prisma/engines@npm:4.16.1"
@@ -140,6 +161,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "prompt-manager@workspace:."
   dependencies:
+    "@prisma/client": ^4.16.1
     "@types/node": ^20.3.2
     prisma: ^4.16.1
     ts-node: ^10.9.1
@@ -186,22 +208,22 @@ __metadata:
   linkType: hard
 
 "typescript@npm:^5.1.3":
-  version: 5.1.3
-  resolution: "typescript@npm:5.1.3"
+  version: 5.1.5
+  resolution: "typescript@npm:5.1.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: d9d51862d98efa46534f2800a1071a613751b1585dc78884807d0c179bcd93d6e9d4012a508e276742f5f33c480adefc52ffcafaf9e0e00ab641a14cde9a31c7
+  checksum: 0eef8699e05ae767096924dbed633c340b4d36e953bb8ed87fb12e9dd9dcea5055ceac7182c614a556dbd346a8a82df799d330e1e286ae66e17c84e1710f6a6f
   languageName: node
   linkType: hard
 
 "typescript@patch:typescript@^5.1.3#~builtin<compat/typescript>":
-  version: 5.1.3
-  resolution: "typescript@patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=5da071"
+  version: 5.1.5
+  resolution: "typescript@patch:typescript@npm%3A5.1.5#~builtin<compat/typescript>::version=5.1.5&hash=5da071"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 6f0a9dca6bf4ce9dcaf4e282aade55ef4c56ecb5fb98d0a4a5c0113398815aea66d871b5611e83353e5953a19ed9ef103cf5a76ac0f276d550d1e7cd5344f61e
+  checksum: 12ff5d14888805f24479e54bc8a3f83647107a6345f6c29dffcd429fb345be55f584a37e262cca58a0105203e41d4cb4e31b1b9096c9abeca0e2ace8eb00935e
   languageName: node
   linkType: hard
 
