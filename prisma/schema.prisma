@@ -9,3 +9,18 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  prompts Prompt[]
+}
+
+model Prompt {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
