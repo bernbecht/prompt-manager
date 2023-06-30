@@ -2,7 +2,8 @@
   "name": "prompt-manager",
   "packageManager": "yarn@3.6.0",
   "scripts": {
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "dbstudio": "yarn dlx prisma studio"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
