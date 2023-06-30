@@ -10,7 +10,7 @@
 !.yarn/cache
 .pnp.*
 .env
-/node_modules
+*/node_modules
 
 # Prisma
-prisma/dev.db
+*/prisma/dev.db
