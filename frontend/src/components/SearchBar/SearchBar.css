@@ -1,0 +1,30 @@
+.SearchBar {
+  font-size: 1em;
+  text-align: center;
+  background-color: transparent;
+  text-align: left;
+  box-sizing: border-box;
+  flex-grow: 1;
+  border: 0;
+  height: 100%;
+  padding: 0 var(--space-2);
+}
+
+.SearchBar:focus {
+  outline: none;
+}
+
+.SearchBarContainer {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2);
+  border-radius: var(--space-2);
+  border: 1px solid var(--color-primary);
+  width: 320px;
+}
+
+.SearchBarContainer:focus-within {
+  box-shadow: 0 0 var(--space-2) 1px var(--color-primary-light);
+}
