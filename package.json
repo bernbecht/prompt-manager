@@ -1,0 +1,7 @@
+{
+  "name": "prompt-manager",
+  "scripts": {
+    "dev:server": "cd backend && yarn ts-node src/index.ts",
+    "dbstudio": "cd backend && yarn dlx prisma studio"
+  }
+}

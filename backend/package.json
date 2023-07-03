@@ -1,5 +1,5 @@
 {
-  "name": "prompt-manager",
+  "name": "prompt-manager-backend",
   "packageManager": "yarn@3.6.0",
   "scripts": {
     "dev": "ts-node src/index.ts",
