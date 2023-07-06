@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { capitalizeFirstLetter } from '../../utils'
 import './SuggestionBox.css'
 import { useGetPrompt } from '../../data/useGetPrompt'
+import { Prompt } from '@shared-types'
 interface Props {
   query: string
   open: boolean
@@ -29,7 +30,7 @@ export function SuggestionsBox({ query, open, handleItemClick }: Props) {
     items.length === 0 ? (
       <p>No results</p>
     ) : (
-      items.map((prompt) => {
+      items.map((prompt: Prompt) => {
         return (
           <li
             tabIndex={0}

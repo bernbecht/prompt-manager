@@ -3,6 +3,7 @@
   "packageManager": "yarn@3.6.0",
   "scripts": {
     "dev": "ts-node src/index.ts",
+    "migrate": "yarn prisma migrate dev && cp -rf node_modules/.prisma/client/ ../shared-types/@prisma",
     "dbstudio": "yarn dlx prisma studio",
     "seed": "ts-node prisma/seed.ts"
   },
