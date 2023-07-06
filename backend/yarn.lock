@@ -660,9 +660,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prompt-manager@workspace:.":
+"prompt-manager-backend@workspace:.":
   version: 0.0.0-use.local
-  resolution: "prompt-manager@workspace:."
+  resolution: "prompt-manager-backend@workspace:."
   dependencies:
     "@prisma/client": ^4.16.1
     "@types/cors": ^2.8.13

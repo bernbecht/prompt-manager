@@ -1,17 +1,16 @@
 import { useState } from 'react'
-import { Pokemon } from '../types'
 import { GET } from './network'
 
-async function fetchPokemons() {
-  const apiURL = `https://pokeapi.co/api/v2/pokemon?limit=150`
+async function fetchPrompts() {
+  const apiURL = `http://localhost:3001/prompts`
   const response = await GET(apiURL)
   return response
 }
 
-export function useFetchPokemonSuggestions() {
+export function useGetPrompt() {
   // in a bigger app, we should move the loading state to a global state management library like redux
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [data, setData] = useState<Pokemon[]>([])
+  const [data, setData] = useState([])
   const [error, setError] = useState<Error>()
   let filterTimeout: number
 
@@ -20,13 +19,8 @@ export function useFetchPokemonSuggestions() {
     setIsLoading(true)
     filterTimeout = setTimeout(async () => {
       try {
-        const data = await fetchPokemons()
-        const pokemonSuggestions = data.results.filter((pokemon: Pokemon) => {
-          return pokemon.name
-            .toLocaleLowerCase()
-            .startsWith(query.toLocaleLowerCase())
-        })
-        setData(pokemonSuggestions)
+        const data = await fetchPrompts()
+        setData(data)
       } catch (error) {
         setError(error as Error)
       }

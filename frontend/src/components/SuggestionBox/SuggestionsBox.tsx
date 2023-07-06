@@ -1,63 +1,54 @@
-import { useEffect } from "react";
-import { useFetchPokemonSuggestions } from "../../data/useFetchPokemonSuggestions";
-import { capitalizeFirstLetter } from "../../utils";
-import "./SuggestionBox.css";
-
+import { useEffect } from 'react'
+import { capitalizeFirstLetter } from '../../utils'
+import './SuggestionBox.css'
+import { useGetPrompt } from '../../data/useGetPrompt'
 interface Props {
-  query: string;
-  open: boolean;
-  loading?: boolean;
-  handleItemClick: (selectedItem: string) => void;
+  query: string
+  open: boolean
+  loading?: boolean
+  handleItemClick: (selectedItem: string) => void
 }
 
 export function SuggestionsBox({ query, open, handleItemClick }: Props) {
-  const {
-    isLoading,
-    data: items,
-    error,
-    fetch: pokemonFetch,
-  } = useFetchPokemonSuggestions();
+  const { isLoading, data: items, error, fetch: promptFetch } = useGetPrompt()
 
   useEffect(() => {
     const dataFetch = async () => {
-      await pokemonFetch(query);
-    };
-    if (query !== "") {
-      dataFetch();
+      await promptFetch(query)
     }
-  }, [query]);
+    if (query !== '') {
+      dataFetch()
+    }
+  }, [query])
 
-  if (query === "" || !open) {
-    return null;
+  if (query === '' || !open) {
+    return null
   }
 
   const suggestionItems =
     items.length === 0 ? (
       <p>No results</p>
     ) : (
-      items.map((pokemon) => {
-        const matchedLetters = pokemon.name.slice(0, query.length);
-        const remainingLetters = pokemon.name.slice(query.length);
+      items.map((prompt) => {
         return (
           <li
             tabIndex={0}
             className="SuggestionItem"
-            key={pokemon.url}
+            key={prompt.id}
             onClick={(event) =>
-              handleItemClick(event.currentTarget.textContent || "")
+              handleItemClick(event.currentTarget.textContent || '')
             }
             onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                handleItemClick(event.currentTarget.textContent || "");
+              if (event.key === 'Enter') {
+                handleItemClick(event.currentTarget.textContent || '')
               }
             }}
           >
-            <mark>{capitalizeFirstLetter(matchedLetters)}</mark>
-            {remainingLetters}
+            {capitalizeFirstLetter(prompt.title)}
           </li>
-        );
+        )
       })
-    );
+    )
 
   return (
     <ul className="SuggestionBox">
@@ -66,5 +57,5 @@ export function SuggestionsBox({ query, open, handleItemClick }: Props) {
         <p>☹️ Our system isn't available right now. Please try again later</p>
       )}
     </ul>
-  );
+  )
 }
