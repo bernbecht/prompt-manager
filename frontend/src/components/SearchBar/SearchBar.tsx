@@ -1,9 +1,9 @@
-import "./SearchBar.css";
+import './SearchBar.css'
 
 interface Props {
-  query: string;
-  clearButton?: React.ReactNode;
-  handleQueryChange: (query: string) => void;
+  query: string
+  clearButton?: React.ReactNode
+  handleQueryChange: (query: string) => void
 }
 
 export function SearchBar({ query, clearButton, handleQueryChange }: Props) {
@@ -11,12 +11,12 @@ export function SearchBar({ query, clearButton, handleQueryChange }: Props) {
     <label className="SearchBarContainer">
       <input
         type="text"
-        placeholder="Ex: Charmander🔥"
+        placeholder="Ex: What is the meaning of life?"
         onChange={(event) => handleQueryChange(event.target.value)}
         className="SearchBar"
         value={query}
       />
       {clearButton}
     </label>
-  );
+  )
 }

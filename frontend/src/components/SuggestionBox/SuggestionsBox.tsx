@@ -48,6 +48,9 @@ export function SuggestionsBox({ query, open, handleItemClick }: Props) {
               if (event.key === 'Enter') {
                 handleItemClick(event.currentTarget.textContent || '')
               }
+              if (event.metaKey && event.key === 'c') {
+                navigator.clipboard.writeText(prompt.content)
+              }
             }}
           >
             {capitalizeFirstLetter(prompt.title)}
