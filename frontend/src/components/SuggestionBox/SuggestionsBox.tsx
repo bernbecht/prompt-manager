@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { capitalizeFirstLetter } from '../../utils'
 import './SuggestionBox.css'
-import { useGetPrompt } from '../../data/useGetPrompt'
+import { useSearchPrompt } from '../../data/useSearchPrompt'
 import { Prompt } from '@shared-types'
 interface Props {
   query: string
@@ -11,7 +11,12 @@ interface Props {
 }
 
 export function SuggestionsBox({ query, open, handleItemClick }: Props) {
-  const { isLoading, data: items, error, fetch: promptFetch } = useGetPrompt()
+  const {
+    isLoading,
+    data: items,
+    error,
+    fetch: promptFetch,
+  } = useSearchPrompt()
 
   useEffect(() => {
     const dataFetch = async () => {

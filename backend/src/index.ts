@@ -113,15 +113,16 @@ app.get('/prompts', async (req, res) => {
   }
 })
 
-// Get a prompt by author ID
-app.get('/promtps/:authorId', async (req, res) => {
-  const { authorId } = req.params
-  const prompts = await prisma.prompt.findMany({
+app.get('/searchPrompt', async (req, res) => {
+  const { title }: { title?: string } = req.query
+  const filteredPosts = await prisma.prompt.findMany({
     where: {
-      authorId: Number(authorId),
+      title: {
+        contains: title,
+      },
     },
   })
-  res.json(prompts)
+  res.json(filteredPosts)
 })
 
 // Get a prompt by ID
