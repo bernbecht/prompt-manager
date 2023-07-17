@@ -17,7 +17,7 @@ function App() {
     setIsSuggestionBoxOpen(true)
   }
 
-  const clearButton = query ? (
+  const clearButton = (
     <button
       onClick={() => {
         setQuery('')
@@ -26,7 +26,9 @@ function App() {
     >
       Clear
     </button>
-  ) : null
+  )
+
+  const addButton = <button onClick={() => {}}>+ Add</button>
 
   return (
     <div>
@@ -34,7 +36,7 @@ function App() {
       <SearchBar
         query={query}
         handleQueryChange={handleQueryChange}
-        clearButton={clearButton}
+        auxButton={query ? clearButton : addButton}
       />
       <SuggestionsBox
         query={query}
