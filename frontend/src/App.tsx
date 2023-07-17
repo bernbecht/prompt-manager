@@ -2,10 +2,12 @@ import { useState } from 'react'
 import './App.css'
 import { SuggestionsBox } from './components/SuggestionBox/SuggestionsBox'
 import { SearchBar } from './components/SearchBar/SearchBar'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   const [query, setQuery] = useState<string>('')
   const [isSuggestionBoxOpen, setIsSuggestionBoxOpen] = useState<boolean>(false)
+  const navigate = useNavigate()
 
   function handleSuggestionClick(selectedPokemon: string) {
     setQuery(selectedPokemon)
@@ -28,7 +30,15 @@ function App() {
     </button>
   )
 
-  const addButton = <button onClick={() => {}}>+ Add</button>
+  const addButton = (
+    <button
+      onClick={() => {
+        navigate('/add')
+      }}
+    >
+      + Add
+    </button>
+  )
 
   return (
     <div>

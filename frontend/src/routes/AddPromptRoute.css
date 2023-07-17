@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form > span {
+  margin-bottom: 13px;
+}
+
+label {
+  margin-right: 7px;
+}
+
+span {
+  display: flex;
+}
