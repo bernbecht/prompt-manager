@@ -17,7 +17,7 @@ export function AddPromptRoute() {
     create({ ...formState, authorId: 1 }) // TODO: use real author id
   }
 
-  function handleFormChante(
+  function handleFormChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = event.target
@@ -36,7 +36,7 @@ export function AddPromptRoute() {
             placeholder=""
             name="title"
             value={formState.title}
-            onChange={handleFormChante}
+            onChange={handleFormChange}
           />
         </span>
         <span>
@@ -45,7 +45,7 @@ export function AddPromptRoute() {
             placeholder=""
             name="prompt"
             value={formState.prompt}
-            onChange={handleFormChante}
+            onChange={handleFormChange}
           />
         </span>
         <button type="submit" onClick={handleSubmit}>
