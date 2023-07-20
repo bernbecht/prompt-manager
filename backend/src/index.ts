@@ -99,6 +99,7 @@ app.post('/prompts', async (req, res) => {
     })
     res.json(prompt)
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error creating prompt' })
   }
 })

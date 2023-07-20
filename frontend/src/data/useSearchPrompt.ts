@@ -8,7 +8,6 @@ async function fetchPrompts(query: string) {
 }
 
 export function useSearchPrompt() {
-  // in a bigger app, we should move the loading state to a global state management library like redux
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [data, setData] = useState([])
   const [error, setError] = useState<Error>()

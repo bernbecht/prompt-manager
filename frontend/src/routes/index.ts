@@ -1,4 +1,4 @@
-import { AddPromptRoute } from './addPrompt'
+import { AddPromptRoute } from './AddPromptRoute'
 import { RootRoute } from './root'
 
 export { RootRoute }
