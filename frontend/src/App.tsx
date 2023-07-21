@@ -33,7 +33,7 @@ function App() {
   const addButton = (
     <button
       onClick={() => {
-        navigate('/add')
+        navigate('/prompt/add')
       }}
     >
       + Add

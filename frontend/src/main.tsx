@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <RootRoute />,
   },
   {
-    path: '/add',
+    path: '/prompt/add',
     element: <AddPromptRoute />,
   },
 ])
