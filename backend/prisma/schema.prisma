@@ -17,39 +17,14 @@ model User {
 
   // Relation fields
   prompts Prompt[]
-  tokens Token[]
 }
 
 model Prompt {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
+  id      Int     @id @default(autoincrement())
+  title   String
+  content String?
 
   // Relation fields
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
 }
-
-model Token {
-  id Int @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  // Not supported by SQLite
-  // type TokenType
-  type String
-  emailToken String? @unique // only used for short lived email tokens
-  valid Boolean @default(true)
-  expiration DateTime
-
-  //Relation fields
-  user User @relation(fields: [userId], references: [id])
-  userId Int
-}
-
-// Not supported by SQLite
-// enum TokenType {
-//   EMAIL // used as a short-lived token sent to the user's email
-//   API
-// }
-
-
