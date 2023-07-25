@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 import cors from 'cors'
 import express from 'express'
+import { promptsRouter } from './prompts'
 
 const app = express()
 const prisma = new PrismaClient()
@@ -86,94 +87,7 @@ app.delete('/users/:id', async (req, res) => {
   }
 })
 
-// Create a new prompt
-app.post('/prompts', async (req, res) => {
-  const { title, content, authorId } = req.body
-  try {
-    const prompt = await prisma.prompt.create({
-      data: {
-        title,
-        content,
-        authorId,
-      },
-    })
-    res.json(prompt)
-  } catch (error) {
-    console.log(error)
-    res.status(500).json({ error: 'Error creating prompt' })
-  }
-})
-
-// Get all prompts
-app.get('/prompts', async (req, res) => {
-  try {
-    const prompts = await prisma.prompt.findMany()
-    res.json(prompts)
-  } catch (error) {
-    res.status(500).json({ error: 'Error getting prompts' })
-  }
-})
-
-app.get('/searchPrompt', async (req, res) => {
-  const { title }: { title?: string } = req.query
-  const filteredPosts = await prisma.prompt.findMany({
-    where: {
-      title: {
-        contains: title,
-      },
-    },
-  })
-  res.json(filteredPosts)
-})
-
-// Get a prompt by ID
-app.get('/prompts/:id', async (req, res) => {
-  const promptId = parseInt(req.params.id)
-  try {
-    const prompt = await prisma.prompt.findUnique({
-      where: { id: promptId },
-    })
-    if (!prompt) {
-      res.status(404).json({ error: 'Prompt not found' })
-    } else {
-      res.json(prompt)
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Error getting prompt' })
-  }
-})
-
-// Update a prompt by ID
-app.put('/prompts/:id', async (req, res) => {
-  const promptId = parseInt(req.params.id)
-  const { title, content, authorId } = req.body
-  try {
-    const prompt = await prisma.prompt.update({
-      where: { id: promptId },
-      data: {
-        title,
-        content,
-        authorId,
-      },
-    })
-    res.json(prompt)
-  } catch (error) {
-    res.status(500).json({ error: 'Error updating prompt' })
-  }
-})
-
-// Delete a prompt by ID
-app.delete('/prompts/:id', async (req, res) => {
-  const promptId = parseInt(req.params.id)
-  try {
-    const prompt = await prisma.prompt.delete({
-      where: { id: promptId },
-    })
-    res.json(prompt)
-  } catch (error) {
-    res.status(500).json({ error: 'Error deleting prompt' })
-  }
-})
+app.use('/prompts', promptsRouter)
 
 const server = app.listen(3001, () =>
   console.log('🚀 Server ready at: http://localhost:3001')
