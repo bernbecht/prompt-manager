@@ -6,7 +6,7 @@ import { useCreatePrompt } from '../data/useCreatePrompt'
 export function AddPromptRoute() {
   const [formState, setFormState] = useState({
     title: '',
-    prompt: '',
+    content: '',
   })
   const { create } = useCreatePrompt()
 
@@ -43,8 +43,8 @@ export function AddPromptRoute() {
           <label htmlFor="answer">Prompt</label>
           <textarea
             placeholder=""
-            name="prompt"
-            value={formState.prompt}
+            name="content"
+            value={formState.content}
             onChange={handleFormChange}
           />
         </span>
