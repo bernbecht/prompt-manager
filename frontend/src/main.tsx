@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     element: <RootRoute />,
   },
   {
-    path: '/prompt/add',
+    path: '/prompts/add',
     element: <AddPromptRoute />,
   },
   {
-    path: '/prompt/:id/edit',
+    path: '/prompts/:id/edit',
     // if an exception is thrown here
     loader: promptLoader,
     // or here

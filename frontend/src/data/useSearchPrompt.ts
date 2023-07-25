@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { GET } from './network'
 
 async function fetchPrompts(query: string) {
-  const apiURL = `http://localhost:3001/searchPrompt?title=${query}`
+  const apiURL = `http://localhost:3001/prompts/search?title=${query}`
   const response = await GET(apiURL)
   return response
 }

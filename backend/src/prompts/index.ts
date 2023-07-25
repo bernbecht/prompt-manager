@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.get('/searchPrompt', async (req, res) => {
+router.get('/search', async (req, res) => {
   const { title }: { title?: string } = req.query
   const filteredPosts = await prisma.prompt.findMany({
     where: {
