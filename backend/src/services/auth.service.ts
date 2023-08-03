@@ -7,7 +7,7 @@ import createError from 'http-errors'
 
 dotenv.config()
 
-export async function register(data) {
+async function register(data) {
   const { email, name, password } = data
   const hashedPassword = await bcrypt.hash(password, 8)
   const user = prisma.user.create({
@@ -21,7 +21,7 @@ export async function register(data) {
   return data
 }
 
-export async function login(data) {
+async function login(data) {
   const { email, password } = data
   const user = await prisma.user.findUnique({
     where: { email },
@@ -38,4 +38,9 @@ export async function login(data) {
   delete user.password
   const accessToken = await signAccessToken(user)
   return { ...user, accessToken }
+}
+
+export default {
+  register,
+  login,
 }
