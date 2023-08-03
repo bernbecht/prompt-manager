@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 import { signAccessToken } from '../../utils/jwt'
@@ -9,8 +10,11 @@ dotenv.config()
 
 async function register(data) {
   const { email, name, password } = data
+  if (!email || !name || !password) {
+    throw createError.Unauthorized('Email or password not valid')
+  }
   const hashedPassword = await bcrypt.hash(password, 8)
-  const user = prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       email,
       name,
