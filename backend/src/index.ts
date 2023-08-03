@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import cors from 'cors'
 import express from 'express'
 import { promptsRouter } from './routes/prompts'
+import { authRouter } from './routes/auth'
 
 const app = express()
 const prisma = new PrismaClient()
@@ -88,6 +89,7 @@ app.delete('/users/:id', async (req, res) => {
 })
 
 app.use('/prompts', promptsRouter)
+app.use('/auth', authRouter)
 
 const server = app.listen(3001, () =>
   console.log('🚀 Server ready at: http://localhost:3001')
