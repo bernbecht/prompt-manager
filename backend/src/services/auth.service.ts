@@ -1,10 +1,10 @@
-const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
-import { signAccessToken, verifyAccessToken } from '../../utils/jwt'
+import { signAccessToken } from '../../utils/jwt'
 import dotenv from 'dotenv'
 import createError from 'http-errors'
 
+const prisma = new PrismaClient()
 dotenv.config()
 
 async function register(data) {
