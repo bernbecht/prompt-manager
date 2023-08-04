@@ -2,7 +2,7 @@
   "name": "prompt-manager-backend",
   "packageManager": "yarn@3.6.0",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "lsof -i :3001 -t | xargs kill && nodemon src/index.ts",
     "migrate": "yarn prisma migrate dev && cp -rf node_modules/.prisma/client/ ../shared-types/@prisma",
     "dbstudio": "yarn dlx prisma studio",
     "seed": "ts-node prisma/seed.ts"
