@@ -1,7 +1,8 @@
+import express from 'express'
 import authService from '../services/auth.service'
 import createError from 'http-errors'
 
-async function register(req, res, next) {
+async function register(req: express.Request, res: express.Response) {
   try {
     const user = await authService.register(req.body)
     res.status(200).json({
@@ -10,7 +11,7 @@ async function register(req, res, next) {
       data: user,
     })
   } catch (error) {
-    next(createError(error.statusCode, error.message))
+    res.status(error.statusCode).json({ error: error.message })
   }
 }
 
