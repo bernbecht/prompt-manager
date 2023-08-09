@@ -1,6 +1,7 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 import express from 'express'
+import { auth } from '../middleware/auth'
 
 const router = express.Router()
 
@@ -21,7 +22,7 @@ router.post('/', async (req, res) => {
 })
 
 // Get all users
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     const users = await prisma.user.findMany()
     res.json(users)

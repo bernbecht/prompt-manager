@@ -14,7 +14,7 @@ app.get('/', async (req, res) => {
   res.json({ message: 'Hello World' })
 })
 
-app.use('/users', auth, usersRouter)
+app.use('/users', usersRouter)
 app.use('/prompts', auth, promptsRouter)
 app.use('/auth', authRouter)
 
