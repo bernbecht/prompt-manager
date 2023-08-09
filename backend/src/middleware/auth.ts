@@ -1,9 +1,10 @@
 import express from 'express'
 import { verifyAccessToken } from '../../utils/jwt'
 import createError from 'http-errors'
+import { AuthenticatedReq } from '../../types'
 
 async function auth(
-  req: express.Request,
+  req: AuthenticatedReq,
   res: express.Response,
   next: express.NextFunction
 ) {
@@ -15,9 +16,8 @@ async function auth(
     return next(createError.Unauthorized())
   }
   try {
-    const user = await verifyAccessToken(token)
-    //@ts-ignore
-    req.user = user
+    const user: any = await verifyAccessToken(token)
+    req.user = user?.payload
     next()
   } catch (error) {
     next(createError.Unauthorized(error.message))

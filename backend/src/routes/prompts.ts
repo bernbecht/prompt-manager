@@ -1,15 +1,26 @@
 const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 import express from 'express'
+import { AuthenticatedReq } from '../../types'
 
 const router = express.Router()
 
 // Get all prompts
-router.get('/', async (req, res) => {
+router.get('/', async (req: AuthenticatedReq, res) => {
+  const userId = req.user ? parseInt(req.user.id, 10) : null
   try {
-    const prompts = await prisma.prompt.findMany()
+    console.log(req.user)
+    console.log(userId)
+    const prompts = await prisma.prompt.findMany({
+      where: {
+        authorId: {
+          equals: userId,
+        },
+      },
+    })
     res.json(prompts)
   } catch (error) {
+    console.error(error)
     res.status(500).json({ error: 'Error getting prompts' })
   }
 })
