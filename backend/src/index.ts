@@ -3,6 +3,7 @@ import express from 'express'
 import { promptsRouter } from './routes/prompts'
 import { authRouter } from './routes/auth'
 import { usersRouter } from './routes/users'
+import { auth } from './middleware/auth'
 
 const app = express()
 
@@ -13,8 +14,8 @@ app.get('/', async (req, res) => {
   res.json({ message: 'Hello World' })
 })
 
-app.use('/users', usersRouter)
-app.use('/prompts', promptsRouter)
+app.use('/users', auth, usersRouter)
+app.use('/prompts', auth, promptsRouter)
 app.use('/auth', authRouter)
 
 const server = app.listen(3001, () =>

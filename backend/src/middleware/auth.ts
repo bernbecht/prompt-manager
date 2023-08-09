@@ -1,5 +1,6 @@
 import express from 'express'
 import { verifyAccessToken } from '../../utils/jwt'
+import createError from 'http-errors'
 
 async function auth(
   req: express.Request,
@@ -15,6 +16,7 @@ async function auth(
   }
   try {
     const user = await verifyAccessToken(token)
+    //@ts-ignore
     req.user = user
     next()
   } catch (error) {

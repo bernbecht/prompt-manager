@@ -22,6 +22,12 @@ async function register(data) {
   return data
 }
 
+/**
+ * 1) Checks if user exists
+ * 2) Checks if password is correct
+ * 3) Generates access token
+ * 4) Returns user data and access token
+ */
 async function login(data) {
   const { email, password } = data
   const user = await prisma.user.findUnique({
@@ -29,7 +35,7 @@ async function login(data) {
   })
 
   if (!user) {
-    throw createError.NotFound('User not registered')
+    throw createError.Unauthorized('Email or password not valid')
   }
 
   const checkPassword = bcrypt.compareSync(password, user.password)
