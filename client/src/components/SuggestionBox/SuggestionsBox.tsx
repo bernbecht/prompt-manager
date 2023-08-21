@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { capitalizeFirstLetter } from '../../utils'
 import './SuggestionBox.css'
 import { useSearchPrompt } from '../../data/useSearchPrompt'
-import { Prompt } from '@shared-types'
+import { Prompt } from 'prompt-mgmt'
 interface Props {
   query: string
   open: boolean

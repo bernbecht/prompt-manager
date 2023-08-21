@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Prompt } from '../../../shared-types/@prisma'
+import { Prompt } from 'prompt-mgmt'
 import { POST } from './network'
 
 export const useCreatePrompt = () => {

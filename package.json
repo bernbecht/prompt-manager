@@ -7,6 +7,7 @@
   "private": true,
   "workspaces": [
     "api",
-    "client"
+    "client",
+    "shared-types"
   ]
 }
