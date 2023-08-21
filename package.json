@@ -1,7 +1,12 @@
 {
-  "name": "prompt-manager",
+  "name": "prompt-mgmt",
   "scripts": {
-    "dev": "cd backend && yarn dev & cd frontend && yarn dev",
-    "dbstudio": "cd backend && yarn dlx prisma studio"
-  }
+    "dev": "cd api && yarn dev & cd client && yarn dev",
+    "dbstudio": "cd api && yarn dlx prisma studio"
+  },
+  "private": true,
+  "workspaces": [
+    "api",
+    "client"
+  ]
 }
