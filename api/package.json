@@ -1,7 +1,8 @@
 {
   "name": "@prompt-mgmt/api",
-  "packageManager": "yarn@3.6.0",
   "version": "0.0.0",
+  "description": "API for Prompt Management",
+  "packageManager": "yarn@3.6.0",
   "scripts": {
     "dev": "lsof -i :3001 -t | xargs kill && nodemon src/index.ts",
     "migrate": "yarn prisma migrate dev && cp -rf node_modules/.prisma/client/ ../shared-types/@prisma",

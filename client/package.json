@@ -1,5 +1,6 @@
 {
   "name": "@prompt-mgmt/client",
+  "description": "A React client for the Prompt Management System",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

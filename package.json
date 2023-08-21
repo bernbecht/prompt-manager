@@ -1,5 +1,7 @@
 {
   "name": "prompt-mgmt",
+  "version": "0.0.0",
+  "description": "A prompt management system",
   "scripts": {
     "dev": "cd api && yarn dev & cd client && yarn dev",
     "dbstudio": "cd api && yarn dlx prisma studio"
