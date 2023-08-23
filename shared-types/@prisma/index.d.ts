@@ -13,6 +13,7 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 export type UserPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  name: "User"
   objects: {
     prompts: PromptPayload<ExtArgs>[]
   }
@@ -20,6 +21,7 @@ export type UserPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultAr
     id: number
     email: string
     name: string | null
+    password: string | null
   }, ExtArgs["result"]["user"]>
   composites: {}
 }
@@ -30,6 +32,7 @@ export type UserPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultAr
  */
 export type User = runtime.Types.DefaultSelection<UserPayload>
 export type PromptPayload<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
+  name: "Prompt"
   objects: {
     author: UserPayload<ExtArgs>
   }
@@ -249,8 +252,8 @@ export namespace Prisma {
   export type Exact<T, W> = $Public.Exact<T, W>
 
   /**
-   * Prisma Client JS version: 4.16.1
-   * Query Engine version: b20ead4d3ab9e78ac112966e242ded703f4a052c
+   * Prisma Client JS version: 4.16.2
+   * Query Engine version: 4bc8b6e1b66cb932731fb1bdbbc550d1e010de81
    */
   export type PrismaVersion = {
     client: string
@@ -698,176 +701,147 @@ export namespace Prisma {
     },
     model: {
       User: {
+        payload: UserPayload<ExtArgs>
         operations: {
           findUnique: {
             args: Prisma.UserFindUniqueArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload> | null
-            payload: UserPayload<ExtArgs>
           }
           findUniqueOrThrow: {
             args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>
-            payload: UserPayload<ExtArgs>
           }
           findFirst: {
             args: Prisma.UserFindFirstArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload> | null
-            payload: UserPayload<ExtArgs>
           }
           findFirstOrThrow: {
             args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>
-            payload: UserPayload<ExtArgs>
           }
           findMany: {
             args: Prisma.UserFindManyArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>[]
-            payload: UserPayload<ExtArgs>
           }
           create: {
             args: Prisma.UserCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>
-            payload: UserPayload<ExtArgs>
           }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>
-            payload: UserPayload<ExtArgs>
           }
           update: {
             args: Prisma.UserUpdateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>
-            payload: UserPayload<ExtArgs>
           }
           deleteMany: {
             args: Prisma.UserDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
-            payload: UserPayload<ExtArgs>
           }
           updateMany: {
             args: Prisma.UserUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
-            payload: UserPayload<ExtArgs>
           }
           upsert: {
             args: Prisma.UserUpsertArgs<ExtArgs>,
             result: $Utils.PayloadToResult<UserPayload>
-            payload: UserPayload<ExtArgs>
           }
           aggregate: {
             args: Prisma.UserAggregateArgs<ExtArgs>,
             result: $Utils.Optional<AggregateUser>
-            payload: UserPayload<ExtArgs>
           }
           groupBy: {
             args: Prisma.UserGroupByArgs<ExtArgs>,
             result: $Utils.Optional<UserGroupByOutputType>[]
-            payload: UserPayload<ExtArgs>
           }
           count: {
             args: Prisma.UserCountArgs<ExtArgs>,
             result: $Utils.Optional<UserCountAggregateOutputType> | number
-            payload: UserPayload<ExtArgs>
           }
         }
       }
       Prompt: {
+        payload: PromptPayload<ExtArgs>
         operations: {
           findUnique: {
             args: Prisma.PromptFindUniqueArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload> | null
-            payload: PromptPayload<ExtArgs>
           }
           findUniqueOrThrow: {
             args: Prisma.PromptFindUniqueOrThrowArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>
-            payload: PromptPayload<ExtArgs>
           }
           findFirst: {
             args: Prisma.PromptFindFirstArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload> | null
-            payload: PromptPayload<ExtArgs>
           }
           findFirstOrThrow: {
             args: Prisma.PromptFindFirstOrThrowArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>
-            payload: PromptPayload<ExtArgs>
           }
           findMany: {
             args: Prisma.PromptFindManyArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>[]
-            payload: PromptPayload<ExtArgs>
           }
           create: {
             args: Prisma.PromptCreateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>
-            payload: PromptPayload<ExtArgs>
           }
           delete: {
             args: Prisma.PromptDeleteArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>
-            payload: PromptPayload<ExtArgs>
           }
           update: {
             args: Prisma.PromptUpdateArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>
-            payload: PromptPayload<ExtArgs>
           }
           deleteMany: {
             args: Prisma.PromptDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
-            payload: PromptPayload<ExtArgs>
           }
           updateMany: {
             args: Prisma.PromptUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
-            payload: PromptPayload<ExtArgs>
           }
           upsert: {
             args: Prisma.PromptUpsertArgs<ExtArgs>,
             result: $Utils.PayloadToResult<PromptPayload>
-            payload: PromptPayload<ExtArgs>
           }
           aggregate: {
             args: Prisma.PromptAggregateArgs<ExtArgs>,
             result: $Utils.Optional<AggregatePrompt>
-            payload: PromptPayload<ExtArgs>
           }
           groupBy: {
             args: Prisma.PromptGroupByArgs<ExtArgs>,
             result: $Utils.Optional<PromptGroupByOutputType>[]
-            payload: PromptPayload<ExtArgs>
           }
           count: {
             args: Prisma.PromptCountArgs<ExtArgs>,
             result: $Utils.Optional<PromptCountAggregateOutputType> | number
-            payload: PromptPayload<ExtArgs>
           }
         }
       }
     }
   } & {
     other: {
+      payload: any
       operations: {
         $executeRawUnsafe: {
           args: [query: string, ...values: any[]],
           result: any
-          payload: any
         }
         $executeRaw: {
           args: [query: TemplateStringsArray | Prisma.Sql, ...values: any[]],
           result: any
-          payload: any
         }
         $queryRawUnsafe: {
           args: [query: string, ...values: any[]],
           result: any
-          payload: any
         }
         $queryRaw: {
           args: [query: TemplateStringsArray | Prisma.Sql, ...values: any[]],
           result: any
-          payload: any
         }
       }
     }
@@ -1088,18 +1062,21 @@ export namespace Prisma {
     id: number | null
     email: string | null
     name: string | null
+    password: string | null
   }
 
   export type UserMaxAggregateOutputType = {
     id: number | null
     email: string | null
     name: string | null
+    password: string | null
   }
 
   export type UserCountAggregateOutputType = {
     id: number
     email: number
     name: number
+    password: number
     _all: number
   }
 
@@ -1116,18 +1093,21 @@ export namespace Prisma {
     id?: true
     email?: true
     name?: true
+    password?: true
   }
 
   export type UserMaxAggregateInputType = {
     id?: true
     email?: true
     name?: true
+    password?: true
   }
 
   export type UserCountAggregateInputType = {
     id?: true
     email?: true
     name?: true
+    password?: true
     _all?: true
   }
 
@@ -1222,6 +1202,7 @@ export namespace Prisma {
     id: number
     email: string
     name: string | null
+    password: string | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1247,6 +1228,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    password?: boolean
     prompts?: boolean | User$promptsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -1255,6 +1237,7 @@ export namespace Prisma {
     id?: boolean
     email?: boolean
     name?: boolean
+    password?: boolean
   }
 
   export type UserInclude<ExtArgs extends $Extensions.Args = $Extensions.DefaultArgs> = {
@@ -2937,7 +2920,8 @@ export namespace Prisma {
   export const UserScalarFieldEnum: {
     id: 'id',
     email: 'email',
-    name: 'name'
+    name: 'name',
+    password: 'password'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -2981,6 +2965,7 @@ export namespace Prisma {
     id?: IntFilter | number
     email?: StringFilter | string
     name?: StringNullableFilter | string | null
+    password?: StringNullableFilter | string | null
     prompts?: PromptListRelationFilter
   }
 
@@ -2988,6 +2973,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
     prompts?: PromptOrderByRelationAggregateInput
   }
 
@@ -3000,6 +2986,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    password?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -3014,6 +3001,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter | number
     email?: StringWithAggregatesFilter | string
     name?: StringNullableWithAggregatesFilter | string | null
+    password?: StringNullableWithAggregatesFilter | string | null
   }
 
   export type PromptWhereInput = {
@@ -3064,6 +3052,7 @@ export namespace Prisma {
   export type UserCreateInput = {
     email: string
     name?: string | null
+    password?: string | null
     prompts?: PromptCreateNestedManyWithoutAuthorInput
   }
 
@@ -3071,12 +3060,14 @@ export namespace Prisma {
     id?: number
     email: string
     name?: string | null
+    password?: string | null
     prompts?: PromptUncheckedCreateNestedManyWithoutAuthorInput
   }
 
   export type UserUpdateInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     prompts?: PromptUpdateManyWithoutAuthorNestedInput
   }
 
@@ -3084,18 +3075,21 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
     prompts?: PromptUncheckedUpdateManyWithoutAuthorNestedInput
   }
 
   export type UserUpdateManyMutationInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PromptCreateInput = {
@@ -3194,6 +3188,7 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    password?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -3204,12 +3199,14 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    password?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    password?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -3526,12 +3523,14 @@ export namespace Prisma {
   export type UserCreateWithoutPromptsInput = {
     email: string
     name?: string | null
+    password?: string | null
   }
 
   export type UserUncheckedCreateWithoutPromptsInput = {
     id?: number
     email: string
     name?: string | null
+    password?: string | null
   }
 
   export type UserCreateOrConnectWithoutPromptsInput = {
@@ -3547,12 +3546,14 @@ export namespace Prisma {
   export type UserUpdateWithoutPromptsInput = {
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserUncheckedUpdateWithoutPromptsInput = {
     id?: IntFieldUpdateOperationsInput | number
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PromptUpdateWithoutAuthorInput = {
