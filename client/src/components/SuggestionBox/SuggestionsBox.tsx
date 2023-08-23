@@ -49,7 +49,7 @@ export function SuggestionsBox({ query, open, handleItemClick }: Props) {
                 handleItemClick(event.currentTarget.textContent || '')
               }
               if (event.metaKey && event.key === 'c') {
-                navigator.clipboard.writeText(prompt.content)
+                navigator.clipboard.writeText(prompt.content || '')
               }
             }}
           >
