@@ -5,9 +5,10 @@
   "packageManager": "yarn@3.6.0",
   "scripts": {
     "dev": "lsof -i :3001 -t | xargs kill && nodemon src/index.ts",
-    "migrate": "yarn prisma migrate dev && cp -rf node_modules/.prisma/client/ ../shared-types/@prisma",
+    "migrate": "yarn prisma migrate dev && yarn types",
     "dbstudio": "yarn dlx prisma studio",
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts",
+    "types": "mkdir -p ../shared-types/@prisma && cp ../node_modules/.prisma/client/index.d.ts ../shared-types/@prisma/"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
