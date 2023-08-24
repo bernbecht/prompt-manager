@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "lsof -i :3001 -t | xargs kill && nodemon src/index.ts",
     "migrate": "yarn prisma migrate dev && yarn types",
-    "dbstudio": "yarn dlx prisma studio",
+    "dbstudio": "yarn prisma studio",
     "seed": "ts-node prisma/seed.ts",
     "types": "mkdir -p ../shared-types/@prisma && cp ../node_modules/.prisma/client/index.d.ts ../shared-types/@prisma/"
   },
