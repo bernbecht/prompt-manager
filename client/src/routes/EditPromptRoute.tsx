@@ -79,3 +79,5 @@ export async function loader({ params }) {
     return { error }
   }
 }
+
+export const URL = '/prompts/:id/edit'

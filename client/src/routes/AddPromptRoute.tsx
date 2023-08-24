@@ -55,3 +55,5 @@ export function AddPromptRoute() {
     </div>
   )
 }
+
+export const URL = '/prompts/add'

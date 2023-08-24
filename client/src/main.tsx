@@ -6,7 +6,12 @@ import {
   createBrowserRouter,
   useRouteError,
 } from 'react-router-dom'
-import { AddPromptRoute, RootRoute } from './routes'
+import {
+  AddPromptRoute,
+  RootRoute,
+  AddPromptRouteURL,
+  EditPromptRouteURL,
+} from './routes'
 import {
   EditPromptRoute,
   loader as promptLoader,
@@ -18,11 +23,11 @@ const router = createBrowserRouter([
     element: <RootRoute />,
   },
   {
-    path: '/prompts/add',
+    path: AddPromptRouteURL,
     element: <AddPromptRoute />,
   },
   {
-    path: '/prompts/:id/edit',
+    path: EditPromptRouteURL,
     // if an exception is thrown here
     loader: promptLoader,
     // or here

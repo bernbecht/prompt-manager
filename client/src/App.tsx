@@ -3,6 +3,7 @@ import './App.css'
 import { SuggestionsBox } from './components/SuggestionBox/SuggestionsBox'
 import { SearchBar } from './components/SearchBar/SearchBar'
 import { useNavigate } from 'react-router-dom'
+import { AddPromptRouteURL } from './routes'
 
 function App() {
   const [query, setQuery] = useState<string>('')
@@ -33,7 +34,7 @@ function App() {
   const addButton = (
     <button
       onClick={() => {
-        navigate('/prompt/add')
+        navigate(AddPromptRouteURL)
       }}
     >
       + Add

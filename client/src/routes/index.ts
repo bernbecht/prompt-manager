@@ -1,5 +1,3 @@
-import { AddPromptRoute } from './AddPromptRoute'
-import { RootRoute } from './root'
-
-export { RootRoute }
-export { AddPromptRoute }
+export { RootRoute } from './RootRoute'
+export { AddPromptRoute, URL as AddPromptRouteURL } from './AddPromptRoute'
+export { EditPromptRoute, URL as EditPromptRouteURL } from './EditPromptRoute'
