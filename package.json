@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A prompt management system",
   "scripts": {
-    "dev": "cd api && yarn dev & cd client && yarn dev",
+    "dev": "yarn workspaces foreach -pi run dev",
     "dbstudio": "cd api && yarn dlx prisma studio"
   },
   "private": true,
@@ -11,5 +11,6 @@
     "api",
     "client",
     "shared-types"
-  ]
+  ],
+  "packageManager": "yarn@3.6.3"
 }

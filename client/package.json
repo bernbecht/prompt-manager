@@ -3,6 +3,7 @@
   "description": "A React client for the Prompt Management System",
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "yarn@3.6.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -15,9 +16,9 @@
     "react-router-dom": "^6.14.1"
   },
   "devDependencies": {
+    "@types/prompt-mgmt": "0.0.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@types/prompt-mgmt": "0.0.0",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
