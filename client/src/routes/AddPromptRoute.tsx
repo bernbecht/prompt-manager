@@ -26,30 +26,29 @@ export function AddPromptRoute() {
 
   return (
     <div>
-      <h1>Add a prompt</h1>
-      <NavLink to="/">Back</NavLink>
+      <nav className="mb-8">
+        <NavLink className="text-left font-light" to="/">
+          Back
+        </NavLink>
+        <h1 className="text-xl font-semibold">Add a prompt</h1>
+      </nav>
       <form>
-        <span>
-          <label htmlFor="prompt">Title</label>
-          <input
-            type="text"
-            placeholder=""
-            name="title"
-            value={formState.title}
-            onChange={handleFormChange}
-          />
-        </span>
-        <span>
-          <label htmlFor="answer">Prompt</label>
-          <textarea
-            placeholder=""
-            name="content"
-            value={formState.content}
-            onChange={handleFormChange}
-          />
-        </span>
+        <Input
+          placeholder="Prompt title"
+          name="title"
+          value={formState.title}
+          label="Title"
+          handleOnChange={handleFormChange}
+        />
+        <Textarea
+          name="content"
+          value={formState.content}
+          label="Prompt"
+          placeholder="Prompt content"
+          handleOnChange={handleFormChange}
+        />
         <button type="submit" onClick={handleSubmit}>
-          Submit
+          Save
         </button>
       </form>
     </div>
@@ -57,3 +56,60 @@ export function AddPromptRoute() {
 }
 
 export const URL = '/prompts/add'
+
+function Input({
+  handleOnChange,
+  name,
+  value,
+  placeholder,
+  label,
+}: {
+  handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  name: string
+  value: string
+  placeholder?: string
+  label?: string
+}) {
+  return (
+    <span className="text-left mb-5">
+      <label htmlFor="prompt${name}}">{label}</label>
+      <input
+        id="prompt${name}}"
+        type="text"
+        placeholder={placeholder}
+        onChange={(event) => handleOnChange(event)}
+        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-indigo-400 focus-within:ring-1 focus-within:ring-indigo-500 focus-within:ring-opacity-50 transition focus:outline-none"
+        name={name}
+        value={value}
+      />
+    </span>
+  )
+}
+
+function Textarea({
+  handleOnChange,
+  name,
+  value,
+  placeholder,
+  label,
+}: {
+  handleOnChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  name: string
+  value: string
+  placeholder?: string
+  label?: string
+}) {
+  return (
+    <span className="text-left mb-5">
+      <label htmlFor="prompt${name}}">{label}</label>
+      <textarea
+        id="prompt${name}}"
+        placeholder={placeholder}
+        onChange={(event) => handleOnChange(event)}
+        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-indigo-400 focus-within:ring-1 focus-within:ring-indigo-500 focus-within:ring-opacity-50 transition focus:outline-none"
+        name={name}
+        value={value}
+      />
+    </span>
+  )
+}
