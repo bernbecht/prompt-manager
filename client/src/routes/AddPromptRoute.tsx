@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import './AddPromptRoute.css'
 import { useState } from 'react'
 import { useCreatePrompt } from '../data/useCreatePrompt'
+import { Input } from '../components/Input'
 
 export function AddPromptRoute() {
   const [formState, setFormState] = useState({
@@ -40,12 +41,13 @@ export function AddPromptRoute() {
           label="Title"
           handleOnChange={handleFormChange}
         />
-        <Textarea
+        <Input
           name="content"
           value={formState.content}
           label="Prompt"
           placeholder="Prompt content"
           handleOnChange={handleFormChange}
+          textearea
         />
         <button
           className="
@@ -66,66 +68,3 @@ export function AddPromptRoute() {
 }
 
 export const URL = '/prompts/add'
-
-function Input({
-  handleOnChange,
-  name,
-  value,
-  placeholder,
-  label,
-}: {
-  handleOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  name: string
-  value: string
-  placeholder?: string
-  label?: string
-}) {
-  return (
-    <span className="text-left mb-5">
-      <label htmlFor="prompt${name}}">{label}</label>
-      <input
-        id="prompt${name}}"
-        type="text"
-        placeholder={placeholder}
-        onChange={(event) => handleOnChange(event)}
-        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-gray-600 focus-within:ring-1 
-        focus-within:border-indigo-500 focus-within:ring-opacity-70 focus-within:ring-indigo-500 focus:outline-none
-        transition
-        dark:bg-neutral-900"
-        name={name}
-        value={value}
-      />
-    </span>
-  )
-}
-
-function Textarea({
-  handleOnChange,
-  name,
-  value,
-  placeholder,
-  label,
-}: {
-  handleOnChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  name: string
-  value: string
-  placeholder?: string
-  label?: string
-}) {
-  return (
-    <span className="text-left mb-5">
-      <label htmlFor="prompt${name}}">{label}</label>
-      <textarea
-        id="prompt${name}}"
-        placeholder={placeholder}
-        onChange={(event) => handleOnChange(event)}
-        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-gray-600 focus-within:ring-1 
-        focus-within:border-indigo-500 focus-within:ring-opacity-70 focus-within:ring-indigo-500 focus:outline-none
-        dark:bg-neutral-900
-        transition"
-        name={name}
-        value={value}
-      />
-    </span>
-  )
-}
