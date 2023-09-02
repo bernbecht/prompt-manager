@@ -54,7 +54,8 @@ export function AddPromptRoute() {
           bg-indigo-500
           text-white
           ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-900 
-          hover:bg-indigo-600 hover:ring-2 hover:ring-indigo-500 hover:ring-opacity-70 
+          hover:bg-indigo-600 
+          focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-70 
           outline-none
           transition
           "
