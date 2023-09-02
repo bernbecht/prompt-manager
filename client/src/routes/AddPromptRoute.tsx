@@ -47,7 +47,17 @@ export function AddPromptRoute() {
           placeholder="Prompt content"
           handleOnChange={handleFormChange}
         />
-        <button type="submit" onClick={handleSubmit}>
+        <button
+          className="
+          bg-indigo-500
+          text-white
+          ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-900 
+          hover:bg-indigo-600 hover:ring-2 hover:ring-indigo-500 hover:ring-opacity-70 
+          outline-none
+          transition
+          "
+          onClick={handleSubmit}
+        >
           Save
         </button>
       </form>
@@ -78,7 +88,10 @@ function Input({
         type="text"
         placeholder={placeholder}
         onChange={(event) => handleOnChange(event)}
-        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-indigo-400 focus-within:ring-1 focus-within:ring-indigo-500 focus-within:ring-opacity-50 transition focus:outline-none"
+        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-gray-600 focus-within:ring-1 
+        focus-within:border-indigo-500 focus-within:ring-opacity-70 focus-within:ring-indigo-500 focus:outline-none
+        transition
+        dark:bg-neutral-900"
         name={name}
         value={value}
       />
@@ -106,7 +119,10 @@ function Textarea({
         id="prompt${name}}"
         placeholder={placeholder}
         onChange={(event) => handleOnChange(event)}
-        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-indigo-400 focus-within:ring-1 focus-within:ring-indigo-500 focus-within:ring-opacity-50 transition focus:outline-none"
+        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-gray-600 focus-within:ring-1 
+        focus-within:border-indigo-500 focus-within:ring-opacity-70 focus-within:ring-indigo-500 focus:outline-none
+        dark:bg-neutral-900
+        transition"
         name={name}
         value={value}
       />

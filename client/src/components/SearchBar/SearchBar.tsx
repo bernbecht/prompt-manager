@@ -11,7 +11,9 @@ export function SearchBar({ query, auxButton, handleQueryChange }: Props) {
         flex items-center 
         border rounded-lg border-indigo-400 
         focus-within:ring-1 focus-within:ring-indigo-500 focus-within:ring-opacity-50
-        transition"
+        transition
+        bg-transparent	
+        "
     >
       <input
         type="text"
@@ -19,7 +21,8 @@ export function SearchBar({ query, auxButton, handleQueryChange }: Props) {
         onChange={(event) => handleQueryChange(event.target.value)}
         className="text-left
           grow
-          py-2
+          pr-2
+          bg-transparent	
           focus:outline-none"
         value={query}
       />
