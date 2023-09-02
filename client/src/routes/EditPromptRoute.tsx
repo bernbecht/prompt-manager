@@ -3,6 +3,7 @@ import './AddPromptRoute.css'
 import { useEffect, useState } from 'react'
 import { useCreatePrompt } from '../data/useCreatePrompt'
 import { getPrompt } from '../data/useGetPrompt'
+import { PromptForm } from '../components'
 
 export function EditPromptRoute() {
   const [formState, setFormState] = useState({
@@ -26,7 +27,6 @@ export function EditPromptRoute() {
   }
 
   const { data } = useLoaderData()
-  console.log(data)
 
   useEffect(() => {
     if (data) {
@@ -39,32 +39,18 @@ export function EditPromptRoute() {
 
   return (
     <div>
-      <h1>Edit prompt</h1>
-      <NavLink to="/">Back</NavLink>
-      <form>
-        <span>
-          <label htmlFor="prompt">Title</label>
-          <input
-            type="text"
-            placeholder=""
-            name="title"
-            value={formState.title}
-            onChange={handleFormChange}
-          />
-        </span>
-        <span>
-          <label htmlFor="answer">Prompt</label>
-          <textarea
-            placeholder=""
-            name="content"
-            value={formState.content}
-            onChange={handleFormChange}
-          />
-        </span>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
+      <nav className="mb-8">
+        <NavLink className="text-left font-light" to="/">
+          Back
+        </NavLink>
+        <h1 className="text-xl font-semibold">Edit the prompt</h1>
+      </nav>
+      <PromptForm
+        title={formState.title}
+        content={formState.content}
+        handleFormChange={handleFormChange}
+        handleSubmit={handleSubmit}
+      />
     </div>
   )
 }

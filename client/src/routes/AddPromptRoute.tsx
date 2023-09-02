@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import './AddPromptRoute.css'
 import { useState } from 'react'
 import { useCreatePrompt } from '../data/useCreatePrompt'
-import { Input } from '../components/Input'
+import { PromptForm } from '../components'
 
 export function AddPromptRoute() {
   const [formState, setFormState] = useState({
@@ -33,37 +33,12 @@ export function AddPromptRoute() {
         </NavLink>
         <h1 className="text-xl font-semibold">Add a prompt</h1>
       </nav>
-      <form>
-        <Input
-          placeholder="Prompt title"
-          name="title"
-          value={formState.title}
-          label="Title"
-          handleOnChange={handleFormChange}
-        />
-        <Input
-          name="content"
-          value={formState.content}
-          label="Prompt"
-          placeholder="Prompt content"
-          handleOnChange={handleFormChange}
-          textearea
-        />
-        <button
-          className="
-          bg-indigo-500
-          text-white
-          ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-900 
-          hover:bg-indigo-600 
-          focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-70 
-          outline-none
-          transition
-          "
-          onClick={handleSubmit}
-        >
-          Save
-        </button>
-      </form>
+      <PromptForm
+        title={formState.title}
+        content={formState.content}
+        handleFormChange={handleFormChange}
+        handleSubmit={handleSubmit}
+      />
     </div>
   )
 }
