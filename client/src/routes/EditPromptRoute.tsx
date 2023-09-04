@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react'
 import { useCreatePrompt } from '../data/useCreatePrompt'
 import { getPrompt } from '../data/useGetPrompt'
 import { PromptForm } from '../components'
+import { NewPrompt } from '../types'
 
 export function EditPromptRoute() {
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<NewPrompt>({
     title: '',
     content: '',
+    authorId: 1, // TODO: use real author id
   })
   const { create } = useCreatePrompt()
 
@@ -16,7 +18,7 @@ export function EditPromptRoute() {
     event.preventDefault()
     console.log(formState)
     console.log('submit')
-    create({ ...formState, authorId: 1 }) // TODO: use real author id
+    create({ ...formState })
   }
 
   function handleFormChange(
@@ -26,13 +28,14 @@ export function EditPromptRoute() {
     setFormState({ ...formState, [name]: value })
   }
 
-  const { data } = useLoaderData()
+  const data = useLoaderData() as Awaited<ReturnType<typeof loader>>
 
   useEffect(() => {
     if (data) {
       setFormState({
         title: data.title,
         content: data.content,
+        authorId: data.authorId,
       })
     }
   }, [])
@@ -46,8 +49,8 @@ export function EditPromptRoute() {
         <h1 className="text-xl font-semibold">Edit the prompt</h1>
       </nav>
       <PromptForm
-        title={formState.title}
-        content={formState.content}
+        title={formState.title || ''}
+        content={formState.content || ''}
         handleFormChange={handleFormChange}
         handleSubmit={handleSubmit}
       />
@@ -55,15 +58,9 @@ export function EditPromptRoute() {
   )
 }
 
-export async function loader({ params }) {
+export async function loader({ params }: { params: any }) {
   const { id } = params
-  try {
-    const data = await getPrompt(id)
-    return { data }
-  } catch (error) {
-    console.error(error)
-    return { error }
-  }
+  return await getPrompt(id)
 }
 
 export const URL = '/prompts/:id/edit'

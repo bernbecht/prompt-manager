@@ -3,7 +3,7 @@ export async function GET(url: string) {
   if (!response.ok) {
     throw new Error(`Could not fetch ${url}. Status: ${response.status}`)
   }
-  return await response.json()
+  return response
 }
 
 export async function POST(url: string, data: any) {

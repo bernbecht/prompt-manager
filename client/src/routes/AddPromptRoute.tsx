@@ -3,11 +3,13 @@ import './AddPromptRoute.css'
 import { useState } from 'react'
 import { useCreatePrompt } from '../data/useCreatePrompt'
 import { PromptForm } from '../components'
+import { NewPrompt } from '../types'
 
 export function AddPromptRoute() {
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<NewPrompt>({
     title: '',
     content: '',
+    authorId: 1, // TODO: use real author id
   })
   const { create } = useCreatePrompt()
 
@@ -15,7 +17,9 @@ export function AddPromptRoute() {
     event.preventDefault()
     console.log(formState)
     console.log('submit')
-    create({ ...formState, authorId: 1 }) // TODO: use real author id
+    create({
+      ...formState,
+    })
   }
 
   function handleFormChange(
@@ -35,7 +39,7 @@ export function AddPromptRoute() {
       </nav>
       <PromptForm
         title={formState.title}
-        content={formState.content}
+        content={formState.content || ''}
         handleFormChange={handleFormChange}
         handleSubmit={handleSubmit}
       />

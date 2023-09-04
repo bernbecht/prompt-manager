@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { GET } from './network'
+import { Prompt } from 'prompt-mgmt'
 
 async function fetchPrompts(query: string) {
   const apiURL = `http://localhost:3001/prompts/search?title=${query}`
   const response = await GET(apiURL)
-  return response
+  return (await response.json()) as Prompt[]
 }
 
 export function useSearchPrompt() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [data, setData] = useState([])
+  const [data, setData] = useState<Prompt[]>([])
   const [error, setError] = useState<Error>()
-  let filterTimeout: number
+  let filterTimeout: string | number | NodeJS.Timeout | undefined
 
   async function fetch(query: string) {
     clearTimeout(filterTimeout)

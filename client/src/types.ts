@@ -1,4 +1,3 @@
-export type Pokemon = {
-  name: string;
-  url: string;
-};
+import { Prompt as PromptModel } from 'prompt-mgmt'
+
+export type NewPrompt = Omit<PromptModel, 'id'>
