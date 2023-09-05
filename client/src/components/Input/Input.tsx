@@ -24,13 +24,32 @@ export function Input({
         type="text"
         placeholder={placeholder}
         onChange={(event) => handleOnChange(event)}
-        className="text-left w-96 px-2 py-2 flex items-center grow border rounded-lg border-gray-600 focus-within:ring-1 
-        focus-within:border-indigo-500 focus-within:ring-opacity-70 focus-within:ring-indigo-500 focus:outline-none
-        transition
-        dark:bg-neutral-900"
+        className={InputStyle}
         name={name}
         value={value}
       />
     </span>
   )
 }
+
+export const InputStyle = `
+text-left
+w-96
+px-2
+py-2
+flex
+items-center
+grow
+border
+rounded-lg
+border-gray-300
+ring-offset-2 
+ring-offset-slate-50 
+dark:ring-offset-slate-900
+focus-within:ring-2
+focus-within:border-indigo-500
+focus-within:ring-opacity-70
+focus-within:ring-indigo-500
+focus:outline-none
+transition
+dark:bg-neutral-900`

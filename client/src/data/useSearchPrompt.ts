@@ -3,7 +3,7 @@ import { GET } from './network'
 import { Prompt } from 'prompt-mgmt'
 
 async function fetchPrompts(query: string) {
-  const apiURL = `http://localhost:3001/prompts/search?title=${query}`
+  const apiURL = `http://localhost:3001/prompts?title=${query}`
   const response = await GET(apiURL)
   return (await response.json()) as Prompt[]
 }
