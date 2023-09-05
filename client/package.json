@@ -6,9 +6,11 @@
   "packageManager": "yarn@3.6.0",
   "scripts": {
     "dev": "vite",
+    "dev:mock": "vite & yarn stubapi",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "stubapi": "json-server --watch ./src/data/mocks/db.json --port 3001"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -26,6 +28,7 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "json-server": "^0.17.3",
     "postcss": "^8.4.28",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
