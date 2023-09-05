@@ -2,21 +2,123 @@
   "prompts": [
     {
       "id": 1,
-      "title": "Simplify language",
-      "content": "Your are an assistant helping a user to simplify the language of his text. Make it sound as his was telling it to someone. Keep the markdown.",
+      "title": "Fifty Shades of Grey",
+      "content": "incentivize clicks-and-mortar applications",
       "authorId": 1
     },
     {
       "id": 2,
-      "title": "Translate to German",
-      "content": "Translate the following to German:",
-      "authorId": 1
+      "title": "Lust for Love",
+      "content": "envisioneer cross-platform web-readiness",
+      "authorId": 2
     },
     {
       "id": 3,
-      "title": "T",
-      "content": "Translate the following to German:",
-      "authorId": 1
+      "title": "Born to Be Bad",
+      "content": "benchmark distributed e-business",
+      "authorId": 3
+    },
+    {
+      "id": 4,
+      "title": "Earthling, The",
+      "content": "mesh compelling systems",
+      "authorId": 4
+    },
+    {
+      "id": 5,
+      "title": "Good Vibrations",
+      "content": "embrace open-source synergies",
+      "authorId": 5
+    },
+    {
+      "id": 6,
+      "title": "Nausicaä of the Valley of the Wind (Kaze no tani no Naushika)",
+      "content": "synthesize back-end models",
+      "authorId": 6
+    },
+    {
+      "id": 7,
+      "title": "Save the Green Planet! (Jigureul jikyeora!)",
+      "content": "revolutionize magnetic infrastructures",
+      "authorId": 7
+    },
+    {
+      "id": 8,
+      "title": "Black Widow",
+      "content": "integrate open-source models",
+      "authorId": 8
+    },
+    {
+      "id": 9,
+      "title": "Leontine",
+      "content": "iterate out-of-the-box experiences",
+      "authorId": 9
+    },
+    {
+      "id": 10,
+      "title": "B. Monkey",
+      "content": "implement intuitive action-items",
+      "authorId": 10
+    },
+    {
+      "id": 11,
+      "title": "Paranormal Activity: The Marked Ones",
+      "content": "visualize interactive infomediaries",
+      "authorId": 11
+    },
+    {
+      "id": 12,
+      "title": "Talk to Her (Hable con Ella)",
+      "content": "facilitate collaborative vortals",
+      "authorId": 12
+    },
+    {
+      "id": 13,
+      "title": "Blonde Venus",
+      "content": "leverage end-to-end users",
+      "authorId": 13
+    },
+    {
+      "id": 14,
+      "title": "Black Nativity",
+      "content": "unleash scalable convergence",
+      "authorId": 14
+    },
+    {
+      "id": 15,
+      "title": "Superman/Batman: Apocalypse",
+      "content": "redefine innovative portals",
+      "authorId": 15
+    },
+    {
+      "id": 16,
+      "title": "Trekkies",
+      "content": "transform one-to-one communities",
+      "authorId": 16
+    },
+    {
+      "id": 17,
+      "title": "Snarveien (Detour)",
+      "content": "deliver extensible eyeballs",
+      "authorId": 17
+    },
+    {
+      "id": 18,
+      "title": "Un vampiro para dos",
+      "content": "enhance extensible solutions",
+      "authorId": 18
+    },
+    {
+      "id": 19,
+      "title": "Boys from Fengkuei, The (Feng gui lai de ren)",
+      "content": "incentivize cross-platform eyeballs",
+      "authorId": 19
+    },
+    {
+      "id": 20,
+      "title": "Escape from Alcatraz",
+      "content": "syndicate dot-com ROI",
+      "authorId": 20
     }
   ]
 }
