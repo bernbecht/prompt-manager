@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { GET } from './network'
 import { Prompt } from 'prompt-mgmt'
 
@@ -27,6 +27,7 @@ export function useSearchPrompt() {
       setIsLoading(false)
     }, 200)
   }
+  const memoizedFetch = useCallback(fetch, [])
 
-  return { isLoading, data, error, fetch }
+  return { isLoading, data, error, fetch: memoizedFetch }
 }
